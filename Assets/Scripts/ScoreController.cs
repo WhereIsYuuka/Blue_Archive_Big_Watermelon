@@ -8,6 +8,7 @@ public class ScoreController : MonoBehaviour
     private static ScoreController instance;
     public int score = 0;
     public Text scoreText;
+    public Text highScoreText, currentScoreText;
     
     private void Awake() {
         if (instance == null)
@@ -41,5 +42,9 @@ public class ScoreController : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", score);
         }
+        //显示当前分数和最高分
+        highScoreText.text = highScore + "";
+        currentScoreText.text = score + "";
+
     }
 }

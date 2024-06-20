@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource musicSource, sfxSource;
     private static AudioManager instance;
     public List<AudioClip> SFXs;
     public List<AudioClip> musics;
@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -31,26 +32,27 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        PlaySong();
+        musicSource = gameObject.GetComponent<AudioSource>();
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        RandomMusic();
     }
 
     private void PlaySong()
     {
-        audioSource.clip = musics[currentMusicIndex];
-        audioSource.loop = true;
-        audioSource.Play();
+        musicSource.clip = musics[currentMusicIndex];
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     public void NextMusic()
     {
-        currentMusicIndex++;
+        currentMusicIndex = (currentMusicIndex + 1) % musics.Count;
         PlaySong();
     }
 
-    public void PreviousMusic()
+    public void PreMusic()
     {
-        currentMusicIndex--;
+        currentMusicIndex = (currentMusicIndex - 1 + musics.Count) % musics.Count;
         PlaySong();
     }
 
@@ -62,6 +64,21 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(int index)
     {
-        audioSource.PlayOneShot(SFXs[index]);
+        sfxSource.PlayOneShot(SFXs[index]);
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
     }
 }
