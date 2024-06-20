@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreController : MonoBehaviour
 {
     private static ScoreController instance;
-    private int score = 0;
+    public int score = 0;
     public Text scoreText;
     
     private void Awake() {
@@ -18,7 +18,7 @@ public class ScoreController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        scoreText.text = "分数: " + score;
+        scoreText.text = "" + score;
     }
 
     public static ScoreController Instance
@@ -29,6 +29,17 @@ public class ScoreController : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "分数: " + score;
+        scoreText.text = "" + score;
+    }
+
+    public void ChangeScore()
+    {
+        //获取最高分
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+        //如果分数大于最高分，则更新最高分
+        if(score > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class FruitCollision : MonoBehaviour
@@ -33,9 +34,16 @@ public class FruitCollision : MonoBehaviour
             if(int.Parse(collidedFruitTag) < fruitList.Count)
             {
                 //销毁碰撞的大头和当前大头
-                Destroy(other.gameObject);
-                Debug.Log(other.gameObject + "destroyed");
-                Destroy(this.gameObject);   
+                // other.transform.DOScale(0, 0.9f);
+                // Destroy(other.gameObject);
+                // Debug.Log(other.gameObject + "destroyed");
+                //调用DoTween动画
+                transform.DOScale(0, 0.3f);
+                Tweener tweener = other.transform.DOScale(0, 0.25f);
+                //当动画结束时销毁物体
+                tweener.OnComplete(() => Destroy(other.gameObject));
+                tweener.OnComplete(() => Destroy(gameObject));
+                // Destroy(this.gameObject);   
                 Debug.Log(this.gameObject + "destroyed");
 
                 //加分
