@@ -9,7 +9,14 @@ public class SoundManager : MonoBehaviour
     private Dictionary<string, AudioClip> audioClips;
 
     private void Awake() {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         audioSource = gameObject.AddComponent<AudioSource>();
         audioClips = new Dictionary<string, AudioClip>();
     }

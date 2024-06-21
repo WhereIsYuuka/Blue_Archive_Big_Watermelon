@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +9,8 @@ public class Spawner : MonoBehaviour
     private bool couldSpawn = true; //用于判断是否可以放下水果
     private GameObject fruit; //用于存储生成的水果
     private float time; //用于计时
+    private int thisTag; //用于存储生成的水果的tag
+    private string path; //用于存储音效路径
 
 
     // Update is called once per frame
@@ -65,6 +66,15 @@ public class Spawner : MonoBehaviour
         {
             //生成水果
             fruit = Instantiate(theFruit, transform.position, Quaternion.identity);
+            
+            //设置生成音效
+            thisTag = int.Parse(fruit.tag);
+            int random = Random.Range(1, FXCount.GetFXCount(thisTag+1));
+            path = "Globals.FX" + thisTag + "_1_" + random;
+            path = Globals.GetVariableValue(path);
+            SoundManager.instance.PlaySE(path);
+            Debug.Log("PlayFX:" + path);
+
             isSpawned = !isSpawned;
         }
     }

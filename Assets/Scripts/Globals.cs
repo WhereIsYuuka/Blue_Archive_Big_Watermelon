@@ -1,45 +1,103 @@
-﻿public class Globals
+﻿using System;
+using System.Reflection;
+
+public class Globals
 {
-    public const string BGM1_1 = "Sounds/Music/碧蓝档案OST圣诞节";
-    public const string BGM1_2= "Sounds/Music/「Blue Archive」「Get Set, Go!~キヴオトス晄輪大祭」Theme 1";
-    public const string BGM1_3 = "Sounds/Music/「Blue Archive」「キヴォトス大運動会晄輪大祭」Battle Theme - 1";
-    public const string BGM1_4 = "Sounds/Music/「Blue Archive」「キヴオトス大運動会晄輪大祭」Event Theme - 1";
-    public const string BGM1_5 = "Sounds/Music/【英语版本_蔚蓝档案韩服】Thanks to";
-    public const string BGM1_6 = "Sounds/Music/【蔚蓝档案】La La Run!";
-    public const string BGM1_7 = "Sounds/Music/【蔚蓝档案】Target for love  (EN)";
-    public const string BGM1_8 = "Sounds/Music/【蔚蓝档案】Theme_02 Luminous memory";
-    public const string BGM1_9 = "Sounds/Music/【蔚蓝档案】Theme_04 Lovely Picnic";
-    public const string BGM1_10 = "Sounds/Music/【蔚蓝档案】Theme_09 Midsummer cat";
-    public const string BGM1_11 = "Sounds/Music/【蔚蓝档案】Theme_11 Connected Sky";
-    public const string BGM1_12 = "Sounds/Music/【蔚蓝档案】Theme_12 Shooting Stars";
-    public const string BGM1_13 = "Sounds/Music/【蔚蓝档案】Theme_14 Step by Step";
-    public const string BGM1_14 = "Sounds/Music/【蔚蓝档案】Theme_21 Midnight Trip";
-    public const string BGM1_15 = "Sounds/Music/【蔚蓝档案】Theme_22 Daily Routine";
-    public const string BGM1_16 = "Sounds/Music/【蔚蓝档案】Theme_44 Walkthrough";
-    public const string BGM1_17 = "Sounds/Music/【蔚蓝档案】Theme_46 Sugar story";
-    public const string BGM1_18 = "Sounds/Music/【蔚蓝档案】Theme_59 RE Aoharu";
-    public const string BGM1_19 = "Sounds/Music/【蔚蓝档案】Theme_64 Pixel time";
-    public const string BGM1_20 = "Sounds/Music/【蔚蓝档案】Theme_77 burning love";
-    public const string BGM1_21 = "Sounds/Music/【蔚蓝档案】Theme_79 Summer Bounce";
-    public const string BGM1_22 = "Sounds/Music/【蔚蓝档案】Theme_80 Colorful Beach";
-    public const string BGM1_23 = "Sounds/Music/【蔚蓝档案】Theme_82 Hifumi Daisuki";
-    public const string BGM1_24 = "Sounds/Music/【蔚蓝档案】Theme_102 GIVE ME CHOCO";
-    public const string BGM1_25 = "Sounds/Music/【蔚蓝档案】Theme_104 「カルバノグの兎」Theme 3";
-    public const string BGM1_26 = "Sounds/Music/【蔚蓝档案】Theme_105「忘れられた神々のためのキリエ」Theme 3";
-    public const string BGM1_27 = "Sounds/Music/【蔚蓝档案】Theme_109 Dolce Biblioteca";
-    public const string BGM1_28 = "Sounds/Music/【蔚蓝档案】Theme_113 「カルバノグの兎」Theme 1 - 1";
-    public const string BGM1_29 = "Sounds/Music/【蔚蓝档案】Theme_120 「アビドスリゾート復旧対策委員会」";
-    public const string BGM1_30 = "Sounds/Music/【蔚蓝档案】Theme_128 「放課後スイーツ物語  ";
-    public const string BGM1_31 = "Sounds/Music/【蔚蓝档案】Theme_140 「友情と勇気と光のロマン」Theme 1";
-    public const string BGM1_32 = "Sounds/Music/【蔚蓝档案】Theme_141 「在年菜之前稍作比试~一决胜负~」";
-    public const string BGM1_33 = "Sounds/Music/【蔚蓝档案】Theme_152 「プレナパテス最終決戦";
-    public const string BGM1_34 = "Sounds/Music/【蔚蓝档案】Theme_159 「白亜の予告状～虚飾の館と美学の在り処～」";
-    public const string BGM1_35 = "Sounds/Music/【蔚蓝档案】Theme_160 白亜の予告状";
-    public const string BGM1_36 = "Sounds/Music/【蔚蓝档案】Theme_165 夏の特殊作戦";
-    public const string BGM1_37 = "Sounds/Music/【蔚蓝档案】わたしたちのクエスト (short.ver) - 1.【蔚蓝档案】";
-    public const string BGM1_38 = "Sounds/Music/温柔的回忆";
-    public const string BGM1_39 = "Sounds/Music/蔚蓝档案_碧蓝档案 OST 183 (電脳)新春行進曲 Event BGM";
-    public const string BGM1_40 = "Sounds/Music/蔚蓝档案_碧蓝档案 OST 208 夢が残した足跡";
+    public const string FX2_1_1 = "Sounds/SFX/小桃/1";
+    public const string FX2_1_2 = "Sounds/SFX/小桃/2";
+    public const string FX2_2_1 = "Sounds/SFX/小桃/dead";
 
+    public const string FX3_1_1 = "Sounds/SFX/柚子/1";
+    public const string FX3_1_2 = "Sounds/SFX/柚子/2";
+    public const string FX3_2_1 = "Sounds/SFX/柚子/dead";
 
+    public const string FX4_1_1 = "Sounds/SFX/爱丽丝/1";
+    public const string FX4_1_2 = "Sounds/SFX/爱丽丝/2";
+    public const string FX4_1_3 = "Sounds/SFX/爱丽丝/3";
+    public const string FX4_2_1 = "Sounds/SFX/爱丽丝/dead";
+
+    public const string FX5_1_1 = "Sounds/SFX/小雪/1";
+    public const string FX5_2_1 = "Sounds/SFX/小雪/dead";
+    public const string FX6_1_1 = "Sounds/SFX/邮箱/1";
+    public const string Fx6_1_2 = "Sounds/SFX/邮箱/2";
+    public const string FX6_1_3 = "Sounds/SFX/邮箱/3";
+    public const string FX6_1_4 = "Sounds/SFX/邮箱/4";
+    public const string FX6_1_5 = "Sounds/SFX/邮箱/5";
+    public const string FX6_1_6 = "Sounds/SFX/邮箱/6";
+    public const string FX6_1_7 = "Sounds/SFX/邮箱/7";
+    public const string FX6_1_8 = "Sounds/SFX/邮箱/8";
+    public const string FX6_1_9 = "Sounds/SFX/邮箱/9";
+    public const string FX6_1_10 = "Sounds/SFX/邮箱/10";
+    public const string FX6_1_11 = "Sounds/SFX/邮箱/11";
+    public const string FX6_1_12 = "Sounds/SFX/邮箱/12";
+    public const string FX6_1_13 = "Sounds/SFX/邮箱/13";
+    public const string FX6_1_14 = "Sounds/SFX/邮箱/14";
+
+    public const string FX7_1_1 = "Sounds/SFX/诺亚/1";
+
+    public const string FX8_1_1 = "Sounds/SFX/遥香/1";
+    public const string FX8_1_2 = "Sounds/SFX/遥香/2";
+
+    public const string FX9_1_1 = "Sounds/SFX/佳代子/1";
+    public const string FX9_1_2 = "Sounds/SFX/佳代子/2";
+
+    public const string FX10_1_1 = "Sounds/SFX/阿露/1";
+    public const string FX10_1_2 = "Sounds/SFX/阿露/2";
+
+    public const string FX11_1_1 = "Sounds/SFX/睦月/1";
+    public const string FX11_1_2 = "Sounds/SFX/睦月/2";
+    public const string FX11_1_3 = "Sounds/SFX/睦月/3";
+
+    public static string GetVariableValue(string variableName)
+    {
+        // 获取当前类的Type对象
+        Type type = typeof(Globals);
+
+        // 尝试获取变量名对应的字段信息
+        FieldInfo fieldInfo = type.GetField(variableName, BindingFlags.Public | BindingFlags.Static);
+
+        // 如果找到了字段，并且字段是静态的，且字段类型为string
+        if (fieldInfo != null && fieldInfo.IsStatic && fieldInfo.FieldType == typeof(string))
+        {
+            // 返回字段的值
+            return fieldInfo.GetValue(null) as string; // 对于静态字段，传递null
+        }
+        else
+        {
+            // 如果没有找到字段，或字段不是string类型，返回null
+            return null;
+        }
+    }
+}
+
+public class FXCount
+{
+    public const int FX2 = 2;
+    public const int FX3 = 2;
+    public const int FX4 = 3;
+    public const int FX5 = 1;
+    public const int FX6 = 14;
+    public const int FX7 = 1;
+    public const int FX8 = 2;
+    public const int FX9 = 2;
+    public const int FX10 = 2;
+    public const int FX11 = 3;
+
+    public static int GetFXCount(int tag)
+    {
+        switch (tag)
+        {
+            case 2: return FX2;
+            case 3: return FX3;
+            case 4: return FX4;
+            case 5: return FX5;
+            case 6: return FX6;
+            case 7: return FX7;
+            case 8: return FX8;
+            case 9: return FX9;
+            case 10: return FX10;
+            case 11: return FX11;
+            default: return 0;
+        }
+    }
 }
