@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -36,11 +36,6 @@ public class GameManager : MonoBehaviour
     public void GoToScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void SetTimeScale(float timeScale)
-    {
-        Time.timeScale = timeScale;
     }
     
 

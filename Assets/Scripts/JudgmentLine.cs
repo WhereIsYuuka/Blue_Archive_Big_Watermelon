@@ -14,11 +14,10 @@ public class JudgmentLine : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other) {
         time += Time.deltaTime;
-        if(time >= 1.0f)
+        if(time >= 2f)
         {
             gameOverPanel.SetActive(true);
             GameManager.Instance.GameOver();
-            Time.timeScale = 0;
         }
     }
 }
