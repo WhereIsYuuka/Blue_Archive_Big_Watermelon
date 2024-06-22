@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class WindowSetting : MonoBehaviour
 {
     public Dropdown dropdown;
+    public Button button;
     
     private void Awake() {
-        dropdown = GetComponent<Dropdown>();
+        button.onClick.AddListener(DropChange);
+        Screen.SetResolution(720, 1080, false);
     }
     void Start()
     {
@@ -26,13 +28,13 @@ public class WindowSetting : MonoBehaviour
         switch(dropdown.value)
         {
             case 0:
-                Screen.SetResolution(720, 1280, false);
+                Screen.SetResolution(720, 1080, false);
                 break;
             case 1:
-                Screen.SetResolution(900, 1440, false);
+                Screen.SetResolution(900, 1350, false);
                 break;
             case 2:
-                Screen.SetResolution(640, 1136, false);
+                Screen.SetResolution(600, 900, false);
                 break;
         }
     }
