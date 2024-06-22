@@ -61,13 +61,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySE(string path, float volume = 1.0f)
     {
-        audioSource.Stop();
         audioSource.PlayOneShot(LoadAudio(path), volume);
     }
 
     public void PlaySE(AudioSource audioSource, string path, float volume = 1.0f)
     {
-        audioSource.Stop();
         audioSource.PlayOneShot(LoadAudio(path), volume);
     }
 
@@ -81,6 +79,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySpawnSE(string tag)
     {
+        audioSource.Stop();
         string path = Globals.GetRandomSoundEffect(tag);
         volume = FXSlider.value;
         PlaySE(path, volume);

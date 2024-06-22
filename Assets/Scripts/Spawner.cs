@@ -62,19 +62,19 @@ public class Spawner : MonoBehaviour
     private void SpawnFruit()
     {
         GameObject theFruit;
-        //设置一个百分之三的概率生成一个特殊大头
-        if(Random.Range(0, 100) < 3)
+        //设置一个百分之七的概率生成一个特殊大头
+        if(Random.Range(0, 100) < 7)
         {
             //获取一个随机特殊大头
             theFruit = specialFruit;
             if(theFruit != null)
             {
-                //生成特殊大头
-                fruit = Instantiate(theFruit, transform.position, Quaternion.identity);
                 //设置生成音效
-                thisTag = int.Parse(fruit.tag);
+                thisTag = int.Parse(theFruit.tag);
                 SoundManager.instance.PlaySpawnSE(thisTag.ToString() + "_2");
                 Debug.Log("PlayFX:" + path);
+                //生成特殊大头
+                fruit = Instantiate(theFruit, transform.position, Quaternion.identity);
                 isSpawned = !isSpawned;
             }
             return;

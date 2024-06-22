@@ -18,6 +18,7 @@ TagManager:
   - over
   - 12
   - AudioManager
+  - Wall
   layers:
   - Default
   - TransparentFX
