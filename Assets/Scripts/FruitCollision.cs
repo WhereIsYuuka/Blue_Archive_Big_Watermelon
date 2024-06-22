@@ -60,7 +60,7 @@ public class FruitCollision : MonoBehaviour
 
                 //生成一个新的大头
                 GameObject newFruit = Instantiate(fruitList[collidedTag], collidedFruitPosition.position, Quaternion.identity);
-                newFruit.transform.position = collidedFruitPosition.position + new Vector3(UnityEngine.Random.Range(-10, 10) * 0.1f, UnityEngine.Random.Range(-10, 10) * 0.1f, 0);//! 生成物体 使用随机防止同地点击无限堆高
+                newFruit.transform.position = collidedFruitPosition.position + new Vector3(UnityEngine.Random.Range(-5, 5) * 0.1f, UnityEngine.Random.Range(-5, 5) * 0.1f, 0);//! 生成物体 使用随机防止同地点击无限堆高
 
                 //小于6的大头不生成音效，减少杂音
                 if(thisTag >= 5)

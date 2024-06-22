@@ -62,8 +62,8 @@ public class Spawner : MonoBehaviour
     private void SpawnFruit()
     {
         GameObject theFruit;
-        //设置一个百分之七的概率生成一个特殊大头
-        if(Random.Range(0, 100) < 7)
+        //设置一个百分之五的概率生成一个特殊大头
+        if(Random.Range(0, 100) < 5)
         {
             //获取一个随机特殊大头
             theFruit = specialFruit;
