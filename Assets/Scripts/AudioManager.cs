@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
     {
         musicSource = gameObject.GetComponent<AudioSource>();
         sfxSource = gameObject.AddComponent<AudioSource>();
+        musicSource.volume = 0.5f;
         RandomMusic();
     }
 

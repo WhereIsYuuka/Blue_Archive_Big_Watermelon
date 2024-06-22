@@ -47,14 +47,8 @@ public class FruitCollision : MonoBehaviour
                 //调用DoTween动画
                 transform.DOScale(0, 0.3f);
                 Tweener tweener = other.transform.DOScale(0, 0.25f);
-                //设置销毁音效路径
-                path = "Globals.FX" + thisTag + "_1_2";
-                path = Globals.GetVariableValue(path);
                 //当动画结束时销毁物体
                 tweener.OnComplete(() => {
-                    //播放销毁音效
-                    SoundManager.instance.PlaySE(path); 
-                    Debug.Log("PlayFX:" + path);
                     Destroy(other.gameObject);
                 });
                 tweener.OnComplete(() => Destroy(gameObject));
@@ -68,16 +62,12 @@ public class FruitCollision : MonoBehaviour
                 GameObject newFruit = Instantiate(fruitList[collidedTag], collidedFruitPosition.position, Quaternion.identity);
                 newFruit.transform.position = collidedFruitPosition.position + new Vector3(UnityEngine.Random.Range(-10, 10) * 0.1f, UnityEngine.Random.Range(-10, 10) * 0.1f, 0);//! 生成物体 使用随机防止同地点击无限堆高
 
-                //小于5的大头不生成音效，减少杂音
-                if(thisTag > 5)
+                //小于6的大头不生成音效，减少杂音
+                if(thisTag >= 5)
                 {
                     //设置生成音效路径
                     //从角色对应语音数量中获取随机数并生成对应音效
-                    int random = Random.Range(1, FXCount.GetFXCount(thisTag+1));
-                    path = "Globals.FX" + (thisTag+1) + "_1_" + random;
-                    path = Globals.GetVariableValue(path);
-                    SoundManager.instance.PlaySE(path);
-                    Debug.Log("PlayFX:" + path);
+                    SoundManager.instance.PlaySpawnSE((thisTag + 1).ToString());
                 }
 
                 //设置新大头的刚体受到物理引擎的影响

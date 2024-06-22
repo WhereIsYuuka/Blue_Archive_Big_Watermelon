@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+    public Slider FXSlider;
+    private float volume;
     private AudioSource audioSource;
     private Dictionary<string, AudioClip> audioClips;
 
@@ -56,7 +59,30 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public void PlaySE(string path, float volume = 1.0f) => audioSource.PlayOneShot(LoadAudio(path), volume);
+    public void PlaySE(string path, float volume = 1.0f)
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(LoadAudio(path), volume);
+    }
 
-    public void PlaySE(AudioSource audioSource, string path, float volume = 1.0f) => audioSource.PlayOneShot(LoadAudio(path), volume);
+    public void PlaySE(AudioSource audioSource, string path, float volume = 1.0f)
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(LoadAudio(path), volume);
+    }
+
+    public void PlayDestorySE(string tag)
+    {
+        tag += "_2";
+        string path = Globals.GetRandomSoundEffect(tag);
+        volume = FXSlider.value;
+        PlaySE(path, volume);
+    }
+
+    public void PlaySpawnSE(string tag)
+    {
+        string path = Globals.GetRandomSoundEffect(tag);
+        volume = FXSlider.value;
+        PlaySE(path, volume);
+    }
 }
