@@ -12,6 +12,10 @@ public class JudgmentLine : MonoBehaviour
         Debug.Log("Collision");
     }
 
+    private void OnTriggerExit2D(Collider2D other) {
+        time = 0f;
+    }
+
     private void OnTriggerStay2D(Collider2D other) {
         time += Time.deltaTime;
         if(time >= 2f)

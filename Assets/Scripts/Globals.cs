@@ -54,7 +54,7 @@ public class Globals
         { "2_2", new[] { "Sounds/SFX/小桃/dead" } },
         { "3", new[] { "Sounds/SFX/柚子/1", "Sounds/SFX/柚子/2" } },
         { "3_2", new[] { "Sounds/SFX/柚子/dead" } },
-        { "4", new[] { "Sounds/SFX/爱丽丝/1", "Sounds/SFX/爱丽丝/2", "Sounds/SFX/爱丽丝/3", "Sounds/SFX/爱丽丝/dead" } },
+        { "4", new[] { "Sounds/SFX/爱丽丝/1", "Sounds/SFX/爱丽丝/2", "Sounds/SFX/爱丽丝/3"} },
         { "4_2", new[] { "Sounds/SFX/爱丽丝/dead" } },
         { "5", new[] { "Sounds/SFX/小雪/1" } },
         { "5_2", new[] { "Sounds/SFX/小雪/dead" } },

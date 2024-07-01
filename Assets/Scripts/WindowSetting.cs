@@ -10,7 +10,7 @@ public class WindowSetting : MonoBehaviour
     
     private void Awake() {
         button.onClick.AddListener(DropChange);
-        Screen.SetResolution(720, 1080, false);
+        Screen.SetResolution(720, 1280, false);
     }
     void Start()
     {
@@ -28,13 +28,16 @@ public class WindowSetting : MonoBehaviour
         switch(dropdown.value)
         {
             case 0:
-                Screen.SetResolution(720, 1080, false);
+                Screen.SetResolution(720, 1280 , false);
                 break;
             case 1:
-                Screen.SetResolution(900, 1350, false);
+                Screen.SetResolution(450, 800, false);
                 break;
             case 2:
-                Screen.SetResolution(600, 900, false);
+                Screen.SetResolution(1080, 1920, false);
+                break;
+            case 3:
+                Screen.SetResolution(1440, 2560, false);
                 break;
         }
     }

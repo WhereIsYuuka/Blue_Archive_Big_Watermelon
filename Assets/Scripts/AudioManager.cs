@@ -59,7 +59,14 @@ public class AudioManager : MonoBehaviour
 
     public void RandomMusic()
     {
-        currentMusicIndex = Random.Range(0, musics.Count);
+        //直到不是当前音乐
+        int index = Random.Range(0, musics.Count);
+        while (index == currentMusicIndex)
+        {
+            index = Random.Range(0, musics.Count);
+        }
+        currentMusicIndex = index;
+
         PlaySong();
     }
 

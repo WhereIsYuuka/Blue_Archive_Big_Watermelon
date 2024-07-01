@@ -25,25 +25,54 @@ public class Yuuka : MonoBehaviour
 
     }
 
+    // private void OnCollisionEnter2D(Collision2D other) {
+    //     //如果碰撞的物体是墙或者碰撞的物体的tag大于当前物体的tag，则不销毁
+    //     if(!couldDestroy)
+    //         return;
+    //     if(other.transform.tag == "Wall" || thisTag < int.Parse(other.transform.tag))
+    //     {
+    //         couldDestroy = false;
+    //         return;
+    //     }
+    //     collidedTag = int.Parse(other.transform.tag);
+    //     if(collidedTag < thisTag)
+    //     {
+    //         //加分
+    //         ScoreController.Instance.AddScore(5 * collidedTag);
+    //         //销毁碰撞的物体,并播放音效
+    //         SoundManager.instance.PlayDestorySE(collidedTag.ToString());
+    //         Destroy(other.gameObject);
+    //     }
+
+    // }
     private void OnCollisionEnter2D(Collision2D other) {
         //如果碰撞的物体是墙或者碰撞的物体的tag大于当前物体的tag，则不销毁
         if(!couldDestroy)
             return;
-        if(other.transform.tag == "Wall" || thisTag < int.Parse(other.transform.tag))
+        if(other.transform.tag == "Wall")
         {
             couldDestroy = false;
             return;
         }
-        collidedTag = int.Parse(other.transform.tag);
-        if(collidedTag < thisTag)
-        {
-            //加分
-            ScoreController.Instance.AddScore(5 * collidedTag);
-            //销毁碰撞的物体,并播放音效
-            SoundManager.instance.PlayDestorySE(collidedTag.ToString());
-            Destroy(other.gameObject);
+    
+        int otherTag;
+        // 尝试将碰撞物体的tag转换为int
+        if(int.TryParse(other.transform.tag, out otherTag)) {
+            if(thisTag < otherTag)
+            {
+                couldDestroy = false;
+                return;
+            }
+            collidedTag = otherTag;
+            if(collidedTag < thisTag)
+            {
+                //加分
+                ScoreController.Instance.AddScore(5 * collidedTag);
+                //销毁碰撞的物体,并播放音效
+                SoundManager.instance.PlayDestorySE(collidedTag.ToString());
+                Destroy(other.gameObject);
+            }
         }
-
     }
 
     private void ChangeSprite()
